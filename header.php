@@ -165,6 +165,7 @@ $username = $_SESSION["user_id"];
                     <li><a href="#"> <i class="icon-home"></i>Categories </a></li>
                     <li><a href="#"> <i class="icon-home"></i>Locations </a></li>
                     <li><a href="#"> <i class="icon-home"></i>Contacts </a></li>
+
           </ul>
         </nav>
         <div class="content-inner">
