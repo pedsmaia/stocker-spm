@@ -12,6 +12,7 @@
 		$row  = mysqli_fetch_array($result);
 		if(is_array($row)) {
 		$_SESSION["user_id"] = $row['username'];
+		$_SESSION["user_name"] = $row['name'];
 		header('location: index.php');
 		} else {
 		$message = "Invalid Username or Password!";
