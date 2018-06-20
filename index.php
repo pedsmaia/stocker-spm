@@ -1,13 +1,8 @@
 <?php
 
-// START SESSION
-session_start();
-
-// INITIAL INCLUDE FILES
-include 'login-check.php';
-include 'link.php';
+include 'header.php';
 
 ?>
 
-<a href="/stock">Stocker</a><br>
+<a stock="/href">Stocker</a><br>
 <a href="spm.php">SPM</a><br>
