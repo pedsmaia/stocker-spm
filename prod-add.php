@@ -73,7 +73,7 @@ include 'header.php';
                 </div>
                 <!-- Product Card -->
 
-                <!-- Location Card -->
+                <!-- Other Details Card -->
                 <div class="col-lg-12">
                   <div class="card">
                     <div class="card-close">
@@ -124,7 +124,7 @@ include 'header.php';
                         <div class="form-group row">
                           <label for="usedstock" class="col-sm-3 form-control-label">Used Stock</label>
                           <div class="col-sm-9">
-                            <input type="text" name="used-stock" class="form-control">
+                            <input type="text" name="usedstock" class="form-control">
                           </div>
                         </div>
 
@@ -200,14 +200,16 @@ include 'header.php';
                         <div class="form-group row">
                           <label for="unit-type" class="col-sm-3 form-control-label">Unit Type</label>
                           <div class="col-sm-4">
-                            <label class="checkbox-inline">
-                              <input id="inlineCheckbox1" type="checkbox" value="option1"> piece
-                            </label>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="unit-type" id="inlineRadio1" value="piece">
+                              <label class="form-check-label" for="inlineRadio1">piece</label>
+                            </div>
                           </div>
                           <div class="col-sm-4">
-                            <label class="checkbox-inline">
-                              <input id="inlineCheckbox2" type="checkbox" value="option2"> metre
-                            </label>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="unit-type" id="inlineRadio2" value="metre">
+                              <label class="form-check-label" for="inlineRadio2">metre</label>
+                            </div>
                           </div>
                         </div>
 
@@ -251,7 +253,7 @@ include 'header.php';
                     </div>
                   </div>
                 </div>
-                <!-- Location Card -->
+                <!-- Other Details Card -->
 
                 <button type="submit" class="btn btn-primary btn-block">Create Product</button>
 
