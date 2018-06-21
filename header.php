@@ -16,7 +16,7 @@ $username = $_SESSION["user_name"];
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Stocker</title>
+    <title><?= $title ?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="all,follow">
@@ -43,22 +43,26 @@ $username = $_SESSION["user_name"];
       <!-- Main Navbar-->
       <header class="header">
         <nav class="navbar">
+
           <!-- Search Box-->
           <div class="search-box">
             <button class="dismiss"><i class="icon-close"></i></button>
             <form id="searchForm" action="#" role="search">
               <input type="search" placeholder="What are you looking for..." class="form-control">
             </form>
-          </div>
+          </div><!-- search-box -->
+
           <div class="container-fluid">
             <div class="navbar-holder d-flex align-items-center justify-content-between">
+
               <!-- Navbar Header-->
               <div class="navbar-header">
                 <!-- Navbar Brand --><a href="index.php" class="navbar-brand d-none d-sm-inline-block">
                   <div class="brand-text d-none d-lg-inline-block"><span>Our </span><strong>Stocker</strong></div>
                   <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong></div></a>
                 <!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
-              </div>
+              </div><!-- navbar-header -->
+
               <!-- Navbar Menu -->
               <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                 <!-- Search-->
@@ -110,18 +114,11 @@ $username = $_SESSION["user_name"];
                     <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong>Read all messages   </strong></a></li>
                   </ul>
                 </li>
-                <!-- Languages dropdown    -->
-                <li class="nav-item dropdown"><a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="img/flags/16/GB.png" alt="English"><span class="d-none d-sm-inline-block">English</span></a>
-                  <ul aria-labelledby="languages" class="dropdown-menu">
-                    <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/DE.png" alt="English" class="mr-2">German</a></li>
-                    <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="img/flags/16/FR.png" alt="English" class="mr-2">French                                         </a></li>
-                  </ul>
-                </li>
                 <!-- Logout    -->
                 <li class="nav-item"><a href="logout.php" class="nav-link logout"> <span class="d-none d-sm-inline">Logout</span><i class="fa fa-sign-out"></i></a></li>
               </ul>
-            </div>
-          </div>
+            </div><!-- navbar-holder -->
+          </div><!-- container-fluid -->
         </nav>
       </header>
       <div class="page-content d-flex align-items-stretch"> 
@@ -133,33 +130,25 @@ $username = $_SESSION["user_name"];
             <div class="title">
               <h1 class="h4"><?php echo $username ; ?></h1>
               <p>Web Designer</p>
-            </div>
-          </div>
+            </div><!-- title -->
+          </div><!-- sidebar-header -->
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
           <ul class="list-unstyled">
                     <li class="active"><a href="index.php"> <i class="icon-home"></i>Home </a></li>
-                   <!-- <li><a href="tables.html"> <i class="icon-grid"></i>Tables </a></li>
-                    <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>
-                    <li><a href="forms.html"> <i class="icon-padnote"></i>Forms </a></li>
-                    <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>
-                      <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                        <li><a href="#">Page</a></li>
-                        <li><a href="#">Page</a></li>
-                        <li><a href="#">Page</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="login.html"> <i class="icon-interface-windows"></i>Login page </a></li> -->
           </ul>
+
           <span class="heading">Products</span>
           <ul class="list-unstyled">
-                    <li><a href="#"> <i class="icon-home"></i>List Products </a></li>
-                    <li><a href="#"> <i class="icon-home"></i>Add New </a></li>
+                    <li><a href="prod-list.php"> <i class="icon-home"></i>List Products </a></li>
+                    <li><a href="prod-add.php"> <i class="icon-home"></i>Add New </a></li>
           </ul>
+
           <span class="heading">Jobs</span>
           <ul class="list-unstyled">
                     <li><a href="#"> <i class="icon-home"></i>List Jobs </a></li>
                     <li><a href="#"> <i class="icon-home"></i>Add New </a></li>
           </ul>
+
           <span class="heading">Settings</span>
           <ul class="list-unstyled">
                     <li><a href="#"> <i class="icon-home"></i>Categories </a></li>
@@ -168,4 +157,11 @@ $username = $_SESSION["user_name"];
 
           </ul>
         </nav>
+        <!-- Main Content Area -->
         <div class="content-inner">
+          <!-- Page Header-->
+          <header class="page-header">
+            <div class="container-fluid">
+              <h2 class="no-margin-bottom"><?= $title ?></h2>
+            </div><!-- container-fluid -->
+          </header>

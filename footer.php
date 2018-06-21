@@ -1,22 +1,20 @@
-              </div>
-            </div>
-          </section>
+
           <!-- Page Footer-->
           <footer class="main-footer">
             <div class="container-fluid">
               <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6 text-center">
                   <p>Peds &copy; 2017-2019</p>
-                </div>
+                </div><!-- col-sm-6 -->
                 <div class="col-sm-6 text-right">
                   <p>OUR<strong>STOCKER</strong> by <a href="http://www.peds.me.uk" class="external">Peds</a></p>
-                </div>
-              </div>
-            </div>
+                </div><!-- col-sm-6 text-right -->
+              </div><!-- row -->
+            </div><!-- container-fluid -->
           </footer>
-        </div>
-      </div>
-    </div>
+          
+        </div><!-- content-inner -->
+    </div><!-- page -->
     <!-- JavaScript files-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>

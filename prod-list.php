@@ -1,6 +1,6 @@
 <?php
 
-$title = "DashBoard";
+$title = "List Products";
 
 include 'header.php';
 
