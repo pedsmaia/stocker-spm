@@ -13,6 +13,8 @@
 		if(is_array($row)) {
 		$_SESSION["user_id"] = $row['username'];
 		$_SESSION["user_name"] = $row['name'];
+		$_SESSION["position"] = $row['position'];
+		$_SESSION["avatar"] = $row['avatar'];
 		header('location: index.php');
 		} else {
 		$message = "Invalid Username or Password!";

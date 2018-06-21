@@ -8,6 +8,8 @@ include 'login-check.php';
 include 'link.php';
 
 $username = $_SESSION["user_name"];
+$position = $_SESSION["position"];
+$avatar = $_SESSION["avatar"];
 
 ?>
 
@@ -126,10 +128,15 @@ $username = $_SESSION["user_name"];
         <nav class="side-navbar">
           <!-- Sidebar Header-->
           <div class="sidebar-header d-flex align-items-center">
-            <div class="avatar"><img src="img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
-            <div class="title">
+            <div class="avatar mr-3">
+              <? if (!empty($avatar)) { ?>
+            <img src="img/<?php echo $avatar ; ?>" alt="..." class="img-fluid rounded-circle"></div>
+              <? } else { ?>
+            <img src="img/no-avatar.jpg" alt="..." class="img-fluid rounded-circle"></div>
+              <? } ?>
+            <div class="title text-center">
               <h1 class="h4"><?php echo $username ; ?></h1>
-              <p>Web Designer</p>
+              <p><?php echo $position ; ?></p>
             </div><!-- title -->
           </div><!-- sidebar-header -->
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>

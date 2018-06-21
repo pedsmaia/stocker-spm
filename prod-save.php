@@ -32,7 +32,7 @@ $p_id = mysqli_real_escape_string($link, $_POST['prod-code']);
 				$last_i_id = $link->insert_id;
 				$last_id = sprintf("%06d", $last_i_id);
 				// redirect to photo uploader
-				header('Location: addphoto.php?id='.$last_id);
+				header('Location: prod-addphoto.php?id='.$last_id);
 				exit;
 
 			} else {
