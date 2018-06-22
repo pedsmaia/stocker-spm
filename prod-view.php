@@ -43,7 +43,7 @@ include 'header.php';
 
                     <div class="col-sm-12 col-lg-9 p-3">
 
-                    	<p><strong>Location:</strong> <?= $row['location'] ?> - <?= $row['sublocation'] ?></p>
+                    	<p><strong>Location:</strong> <?= $row['p_location'] ?> - <?= $row['location'] ?></p>
                     	<p><strong>Unit:</strong> <?= $row['unit'] ?></p>
                     	<p><strong>Current Stock:</strong> <?= $row['c_stock'] ?> <? if (!empty($row["u_stock"])) { echo '<i><small> & <a href="#" data-toggle="modal" data-target=".used_stock">' . $row['u_stock'] . ' used</small></i></a></p>'; } ?></p>
                     	<p><strong>RRP:</strong> £<?= $p_retail ?></p>
