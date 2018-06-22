@@ -32,8 +32,8 @@ if(!empty($sql2)){
 <?
 while ($row = $sql2->fetch_assoc()){ ?>
 <tr class="class<?php echo ($xyz++%2); ?>">
-<td class="p_id"><?php echo $row['id']; ?> </td><td><a href="productview.php?id=<?= $row['id'] ?>"><?php echo $row['name']; ?></a> </td><td> <?php echo $row['p_location'] . ' - ' . $row['location']; ?> </td><td> <?php echo $row['c_stock']; ?></td><td> <?php echo $row['u_stock']; ?></td>
-<td class="icons"><a href="productview.php?id=<?= $row['id'] ?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <a href="productnew.php?id=<?= $row['id'] ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <i class="fa fa-trash-o" aria-hidden="true"></i></td></tr>
+<td class="p_id"><?php echo $row['id']; ?> </td><td><a href="prod-view.php?id=<?= $row['id'] ?>"><?php echo $row['name']; ?></a> </td><td> <?php echo $row['p_location'] . ' - ' . $row['location']; ?> </td><td> <?php echo $row['c_stock']; ?></td><td> <?php echo $row['u_stock']; ?></td>
+<td class="icons"><a href="prod-view.php?id=<?= $row['id'] ?>"><i class="fa fa-eye" aria-hidden="true"></i></a> <a href="productnew.php?id=<?= $row['id'] ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <i class="fa fa-trash-o" aria-hidden="true"></i></td></tr>
 <?
 } 
 ?>
