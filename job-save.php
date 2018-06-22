@@ -5,7 +5,7 @@ include 'link.php';
 $state = $_POST['state'];
 
 // if name is passed, assign all variables  ####      START      ####
-if (!empty($_POST["name"])) {
+if (!empty($_POST["cust-name"])) {
 $cust_name = mysqli_real_escape_string($link, $_POST['cust-name']);
 $vehicle = mysqli_real_escape_string($link, $_POST['vehicle']);
 $vin = mysqli_real_escape_string($link, $_POST['vin']);
@@ -17,7 +17,7 @@ $vin = mysqli_real_escape_string($link, $_POST['vin']);
 					('$cust_name', '$vehicle', '$vin')";
         	if(mysqli_query($link, $sql)){
 				// redirect to photo uploader
-				header('Location: job-view.php?id=';
+				header('Location: job-view.php?id=');
 				exit;
 
 			} else {
