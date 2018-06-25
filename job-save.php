@@ -9,12 +9,13 @@ if (!empty($_POST["cust-name"])) {
 $cust_name = mysqli_real_escape_string($link, $_POST['cust-name']);
 $vehicle = mysqli_real_escape_string($link, $_POST['vehicle']);
 $vin = mysqli_real_escape_string($link, $_POST['vin']);
+$jobtype = mysqli_real_escape_string($link, $_POST['job-type']);
 
 		// if creating a new job  ####      NEW JOB    ####
 		if ($state == 'new') {
-			$sql = "INSERT INTO job (cust_name, vehicle, vin)
+			$sql = "INSERT INTO job (cust_name, vehicle, vin, jobtype)
 					VALUES 
-					('$cust_name', '$vehicle', '$vin')";
+					('$cust_name', '$vehicle', '$vin', '$jobtype')";
         	if(mysqli_query($link, $sql)){
 				// redirect to photo uploader
 				header('Location: job-view.php?id=');

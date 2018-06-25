@@ -178,7 +178,7 @@ $avatar = $_SESSION["avatar"];
                     <li><a href="#jobsDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Jobs </a>
                       <ul id="jobsDropdown" class="collapse list-unstyled ">
                     <li><a href="#"> <i class="icon-home"></i>List Jobs </a></li>
-                    <li><a href="#"> <i class="icon-home"></i>Add New </a></li>
+                    <li><a href="job-add.php"> <i class="icon-home"></i>Add New </a></li>
                       </ul>
                     </li>
           </ul>

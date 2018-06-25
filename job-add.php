@@ -56,6 +56,26 @@ include 'header.php';
                           </div>
                         </div>
 
+                        <div class="form-group row">
+                          <label for="job-type" class="col-sm-3 form-control-label">Job Type</label>
+                          <div class="col-sm-9">
+                          <select class="custom-select" name="job-type">
+                            <option value="build">Build</option>
+                            <option value="service">Service</option>
+                            <option value="repair">Repair</option>
+                            <option value="conversion">Conversiom</option>
+                            <option value="warranty">Warranty</option>
+
+                            <? /* $sql = mysqli_query($link, "SELECT * FROM locations");
+                            while ($row = $sql->fetch_assoc()){  ?>
+                            <option value="<?= $row['location'] ?>" <? if ($row['location'] == $p_loc) { echo 'selected';} ?> ><?php echo $row['location']; ?></option>
+                            <?
+                            } */ ?>
+
+                          </select>
+                          </div>
+                        </div>
+
                     </div><!-- col-sm-12 -->
 
                     	</div><!-- row -->
