@@ -142,26 +142,55 @@ $avatar = $_SESSION["avatar"];
           <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
           <ul class="list-unstyled">
                     <li class="active"><a href="index.php"> <i class="icon-home"></i>Home </a></li>
-          </ul>
-
-          <span class="heading">Products</span>
-          <ul class="list-unstyled">
-                    <li><a href="prod-list.php"> <i class="icon-home"></i>List Products </a></li>
-                    <li><a href="prod-add.php"> <i class="icon-home"></i>Add New </a></li>
-          </ul>
-
-          <span class="heading">Jobs</span>
-          <ul class="list-unstyled">
-                    <li><a href="#"> <i class="icon-home"></i>List Jobs </a></li>
-                    <li><a href="#"> <i class="icon-home"></i>Add New </a></li>
-          </ul>
-
-          <span class="heading">Settings</span>
-          <ul class="list-unstyled">
+                    <li><a href="#settingsDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Settings </a>
+                      <ul id="settingsDropdown" class="collapse list-unstyled ">
                     <li><a href="#"> <i class="icon-home"></i>Categories </a></li>
                     <li><a href="#"> <i class="icon-home"></i>Locations </a></li>
                     <li><a href="#"> <i class="icon-home"></i>Contacts </a></li>
+                      </ul>
+                    </li>
+          </ul>
 
+          <span class="heading">LincsMaC</span>
+          <ul class="list-unstyled">
+                    <li><a href="#lincsmacCaravansDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Caravans </a>
+                      <ul id="lincsmacCaravansDropdown" class="collapse list-unstyled ">
+                    <li><a href="#"> <i class="icon-home"></i>List Caravans </a></li>
+                    <li><a href="#"> <i class="icon-home"></i>Add New </a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#lincsmacCustomersDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Customers </a>
+                      <ul id="lincsmacCustomersDropdown" class="collapse list-unstyled ">
+                    <li><a href="#"> <i class="icon-home"></i>List Customers </a></li>
+                    <li><a href="#"> <i class="icon-home"></i>Add New </a></li>
+                      </ul>
+                    </li>
+          </ul>
+
+          <span class="heading">Stocker</span>
+          <ul class="list-unstyled">
+                    <li><a href="#productsDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Products </a>
+                      <ul id="productsDropdown" class="collapse list-unstyled ">
+                    <li><a href="prod-list.php"> <i class="icon-home"></i>List Products </a></li>
+                    <li><a href="prod-add.php"> <i class="icon-home"></i>Add New </a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#jobsDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Jobs </a>
+                      <ul id="jobsDropdown" class="collapse list-unstyled ">
+                    <li><a href="#"> <i class="icon-home"></i>List Jobs </a></li>
+                    <li><a href="#"> <i class="icon-home"></i>Add New </a></li>
+                      </ul>
+                    </li>
+          </ul>
+
+          <span class="heading">Cloud Storage</span>
+          <ul class="list-unstyled">
+                    <li><a href="#cloudDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Products </a>
+                      <ul id="cloudDropdown" class="collapse list-unstyled ">
+                    <li><a href="prod-list.php"> <i class="icon-home"></i>List Products </a></li>
+                    <li><a href="prod-add.php"> <i class="icon-home"></i>Add New </a></li>
+                      </ul>
+                    </li>
           </ul>
         </nav>
         <!-- Main Content Area -->
