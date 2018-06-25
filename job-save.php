@@ -13,9 +13,9 @@ $jobtype = mysqli_real_escape_string($link, $_POST['job-type']);
 
 		// if creating a new job  ####      NEW JOB    ####
 		if ($state == 'new') {
-			$sql = "INSERT INTO job (cust_name, vehicle, vin, jobtype)
+			$sql = "INSERT INTO job (cust_name, vehicle, vin, jobtype, date_created)
 					VALUES 
-					('$cust_name', '$vehicle', '$vin', '$jobtype')";
+					('$cust_name', '$vehicle', '$vin', '$jobtype', NOW())";
         	if(mysqli_query($link, $sql)){
 				// redirect to photo uploader
 				header('Location: job-view.php?id=');

@@ -63,7 +63,7 @@ include 'header.php';
                             <option value="build">Build</option>
                             <option value="service">Service</option>
                             <option value="repair">Repair</option>
-                            <option value="conversion">Conversiom</option>
+                            <option value="conversion">Conversion</option>
                             <option value="warranty">Warranty</option>
 
                             <? /* $sql = mysqli_query($link, "SELECT * FROM locations");
