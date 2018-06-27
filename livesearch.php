@@ -11,6 +11,7 @@ $result_s = $link->query("SELECT * FROM product WHERE id LIKE '%".$q."%' ");
         <input type="hidden" name="id_job" value="<?= $job_id; ?>">
         <input type="hidden" name="p_id" value="<?= $row_s['id'] ?>">
         <input type="hidden" name="p_retail" value="<?= $row_s['p_retail'] ?>">
+        <input type="hidden" name="c_stock" value="<?= $row_s['c_stock'] ?>">
   <div class="form-group row">
    <div class="col-sm-2">
       <? echo '<small>' . $row_s['id'] . '</small>' ; ?>
