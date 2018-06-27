@@ -10,6 +10,7 @@ if ($state == 'edit')
 					$vehicle = mysqli_real_escape_string($link, $_POST['vehicle']);
 					$vin = mysqli_real_escape_string($link, $_POST['vin']);
 					$jobtype = mysqli_real_escape_string($link, $_POST['job-type']);
+					$company = mysqli_real_escape_string($link, $_POST['company']);
 
 		$id_job = mysqli_real_escape_string($link, $_POST['j_id']);
 
@@ -18,7 +19,8 @@ if ($state == 'edit')
 				SET cust_name = '$cust_name', 
 				vehicle = '$vehicle', 
 				vin = '$vin', 
-				jobtype = '$jobtype'
+				jobtype = '$jobtype',
+				company = '$company'
 				WHERE id = '$id_job'";
 				if(mysqli_query($link, $sql)){
 				// redirect ack to product page
@@ -27,7 +29,7 @@ if ($state == 'edit')
 
 				} else {
 					$error = $link->error;
-					$result = 'ERROR: Could not create product: ' . $error;
+					$result = 'ERROR: Could not edit job: ' . $error;
 
 	        	} // endof mysqli query INSERT
 	    } // endof # EDIT PRODUCT #
@@ -40,12 +42,13 @@ if ($state == 'edit')
 					$vehicle = mysqli_real_escape_string($link, $_POST['vehicle']);
 					$vin = mysqli_real_escape_string($link, $_POST['vin']);
 					$jobtype = mysqli_real_escape_string($link, $_POST['job-type']);
+					$company = mysqli_real_escape_string($link, $_POST['company']);
 
 							// if creating a new job  ####      NEW JOB    ####
 							if ($state == 'new') {
-								$sql = "INSERT INTO job (cust_name, vehicle, vin, jobtype, date_created)
+								$sql = "INSERT INTO job (cust_name, vehicle, vin, jobtype, company, date_created)
 										VALUES 
-										('$cust_name', '$vehicle', '$vin', '$jobtype', NOW())";
+										('$cust_name', '$vehicle', '$vin', '$jobtype', '$company', NOW())";
 					        	if(mysqli_query($link, $sql)){
 									// redirect to photo uploader
 									header('Location: job-view.php?id=');
@@ -115,9 +118,56 @@ if ($c_stock >= $qty_job) {
 
 } // if loop 1
 
-if ($prodreturn == 'yes') {
-	# code...
-}
+if ($_POST['prodreturn'] == 'yes') {
+	
+$job_qty = mysqli_real_escape_string($link, $_POST['job_qty']);
+$j_id = mysqli_real_escape_string($link, $_POST['j_id']);
+$p_id = mysqli_real_escape_string($link, $_POST['p_id']);
+$qty = mysqli_real_escape_string($link, $_POST['qty']);
+$row_id = mysqli_real_escape_string($link, $_POST['row_id']);
+
+$differ = $job_qty - $qty;
+
+  $sql = mysqli_query($link, "SELECT c_stock FROM product WHERE id = '$p_id' ");
+  $row = $sql->fetch_assoc();
+  $c_stock = $row['c_stock'];
+
+  $new_stock = $c_stock + $differ ;
+
+  if ($new_stock < 0) {
+  	echo "We don't have enough stock!";
+  } else {
+
+				$sql = "UPDATE product 
+				SET c_stock = '$new_stock'
+				WHERE id = '$p_id'";
+				
+				if(mysqli_query($link, $sql)){
+
+									$sql_upd = "UPDATE job_stock 
+									SET qty = '$qty'
+									WHERE id = '$row_id' ";
+
+									if(mysqli_query($link, $sql_upd)){
+
+									header('Location: job-view.php?id='.$j_id);
+									exit;
+
+									} else {
+													$error = $link->error;
+													$result = 'ERROR: Could not update job_stock: ' . $error;
+
+									} // endof mysqli query INSERT
+
+				} else {
+									$error = $link->error;
+									$result = 'ERROR: Could not update product: ' . $error;
+
+				} // endof mysqli query UPDATE
+
+	} // end of check if lower than 0
+
+} // if prodreturn
 
 
 ?>	

@@ -57,6 +57,25 @@ include 'header.php';
                         </div>
 
                         <div class="form-group row">
+                          <label for="company" class="col-sm-3 form-control-label">Company</label>
+                          <div class="col-sm-9">
+                            <input type="text" name="vehicle" class="form-control">
+                          <select class="custom-select" name="job-company">
+                            <option value="lincsmac">LincsMaC</option>
+                            <option value="eurocruiser">EuroCruiser</option>
+                            <option value="sttgroup">The STT Group</option>
+
+                            <? /* $sql = mysqli_query($link, "SELECT * FROM locations");
+                            while ($row = $sql->fetch_assoc()){  ?>
+                            <option value="<?= $row['location'] ?>" <? if ($row['location'] == $p_loc) { echo 'selected';} ?> ><?php echo $row['location']; ?></option>
+                            <?
+                            } */ ?>
+
+                          </select>
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
                           <label for="job-type" class="col-sm-3 form-control-label">Job Type</label>
                           <div class="col-sm-9">
                           <select class="custom-select" name="job-type">

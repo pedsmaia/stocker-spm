@@ -48,6 +48,7 @@ include 'header.php';
                     	<div class="row"><div class="col-sm-4 text-right"><strong>Customer:</strong></div> <div class="col-sm-4"><?= $row['cust_name'] ?></div></div>
                     	<div class="row"><div class="col-sm-4 text-right"><strong>Vehicle:</strong></div> <div class="col-sm-4"> <?= $row['vehicle'] ?></div></div>
                     	<div class="row"><div class="col-sm-4 text-right"><strong>VIN:</strong></div> <div class="col-sm-4"> <?= $row['vin'] ?></div></div>
+                      <div class="row"><div class="col-sm-4 text-right"><strong>Type Of Job:</strong></div> <div class="col-sm-4"> <?= $row['jobtype'] ?></div></div>
 
                     </div><!-- col-sm-12 col-lg-6 -->
 
@@ -190,7 +191,7 @@ function showResult(str) {
                     <form action="job-save.php" method="POST" class="form-horizontal add-product">
                     <!-- STATE (new or edit) -->
                     <input type="hidden" name="state" value="edit">
-                    <!-- PRODUCT ID (if editing) -->
+                    <!-- JOB ID (if editing) -->
                     <input type="hidden" name="j_id" value="<?= $j_id ?>">
 
                         <div class="form-group row">
@@ -215,6 +216,24 @@ function showResult(str) {
                         </div>
 
                         <div class="form-group row">
+                          <label for="company" class="col-sm-3 form-control-label">Company</label>
+                          <div class="col-sm-9">
+                          <select class="custom-select" name="company">
+                            <option value="lincsmac" <? if ($row['company'] == 'lincsmac') { echo 'selected'; }  ?> >LincsMaC</option>
+                            <option value="eurocruiser" <? if ($row['company'] == 'eurocruiser') { echo 'selected'; }  ?> >EuroCruiser</option>
+                            <option value="sttgroup" <? if ($row['company'] == 'sttgroup') { echo 'selected'; }  ?> >The STT Group</option>
+
+                            <? /* $sql = mysqli_query($link, "SELECT * FROM locations");
+                            while ($row = $sql->fetch_assoc()){  ?>
+                            <option value="<?= $row['location'] ?>" <? if ($row['location'] == $p_loc) { echo 'selected';} ?> ><?php echo $row['location']; ?></option>
+                            <?
+                            } */ ?>
+
+                          </select>
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
                           <label for="job-type" class="col-sm-3 form-control-label">Job Type</label>
                           <div class="col-sm-9">
                           <select class="custom-select" name="job-type">
@@ -235,6 +254,7 @@ function showResult(str) {
                         </div>
 
                 <button type="submit" class="btn btn-primary btn-block">Update Job</button>
+              </form>
 
       </div>
       <div class="modal-footer">
@@ -262,18 +282,31 @@ function showResult(str) {
           $sql_ms = mysqli_query($link, "SELECT * FROM job_stock WHERE job_id = '$j_id' ");
           while ($row_ms = $sql_ms->fetch_assoc()) {
           $p_id = $row_ms['p_id'];
-          $qty = $row_ms['qty'];
+          $job_qty = $row_ms['qty'];
+          $row_id = $row_ms['id'];
         ?>
 
+                    <form action="job-save.php" method="POST" class="form-horizontal add-product">
+                    <!-- STATE (new or edit) -->
+                    <input type="hidden" name="prodreturn" value="yes">
+                    <!-- JOB ID (if editing) -->
+                    <input type="hidden" name="j_id" value="<?= $j_id ?>">
+                    <!-- JOB ID (if editing) -->
+                    <input type="hidden" name="job_qty" value="<?= $job_qty ?>">
+                    <!-- JOB ID (if editing) -->
+                    <input type="hidden" name="p_id" value="<?= $p_id ?>">
+                    <!-- JOB ID (if editing) -->
+                    <input type="hidden" name="row_id" value="<?= $row_id ?>">
           <div class="form-group row">
-          <label for="newqty" class="col-sm-2 form-control-label"><?= $p_id ?></label>
-            <div class="col-sm-2">
-            <input type="text" name="newqty" class="form-control" value="<?= $qty ?>">
+            <label for="qty" class="col-sm-2 form-control-label"><?= $p_id ?></label>
+              <div class="col-sm-2">
+              <input type="text" name="qty" class="form-control" value="<?= $job_qty ?>">
+              </div>
+              <div class="col-sm-1">
+                    <button class="btn btn-sm btn-primary" type="submit" name="submit">Add </button>
+              </div>
             </div>
-            <div class="col-sm-1">
-                  <button class="btn btn-sm btn-primary" type="submit" name="addto_job">Add </button>
-            </div>
-          </div>
+        </form>
 
         <?
           }
