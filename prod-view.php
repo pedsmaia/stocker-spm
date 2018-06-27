@@ -69,6 +69,7 @@ include 'header.php';
                         <form action="job-save.php" method="post">
                         <input type="hidden" name="p_id" value="<?= $p_id ?>">
                         <input type="hidden" name="p_retail" value="<?= $row['p_retail'] ?>">
+                        <input type="hidden" name="c_stock" value="<?= $row['c_stock'] ?>">
 
                         <div class="form-group row">
                           <label for="qty_job" class="col-sm-2 col-form-label">Qty</label>

@@ -22,7 +22,12 @@ include 'header.php';
                   <div class="card">
                     <div class="card-close">
                       <div class="dropdown">
-                      <span class="small">Date Opened: <?= $row['date_created'] ?></span>
+                      <span class="small mr-2">Date Opened: <?= $row['date_created'] ?></span>
+                        <button type="button" id="closeCard4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"> <i class="fa fa-ellipsis-v"></i> </button>
+                        <div aria-labelledby="closeCard4" class="dropdown-menu dropdown-menu-right has-shadow">
+                          <a href="#"  data-toggle="modal" data-target="#editjobmodal" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit Job</a>
+                          <a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close Job</a>
+                        </div>
                       </div>
                     </div>
                     <div class="card-header d-flex align-items-center">
@@ -65,7 +70,7 @@ include 'header.php';
                     </div>
                     <div class="card-body">
 
-                    	<div class="row">
+                    	<div class="row equal">
                     <div class="col-sm-12 col-lg-11 p-3">
 
 <table class="table small">
@@ -104,7 +109,7 @@ include 'header.php';
 
                     <div class="col-sm-12 col-lg-1 p-3">
 			<button type="button" class="btn btn-sm btn-block btn-success" data-toggle="modal" data-target="#exampleModal"> + Add </button>
-			<button type="button" class="btn btn-sm btn-block btn-danger" data-toggle="modal" data-target="#exampleModal"> x Close </button>
+      <button type="button" class="btn btn-sm btn-block btn-warning" data-toggle="modal" data-target="#prodreturnmodal"> Edit </button>
 
 
                     </div><!-- col-sm-12 col-lg-6 -->
@@ -168,6 +173,121 @@ function showResult(str) {
     </div>
   </div>
 </div>
+
+<!-- EDIT JOB MODAL -->
+
+<div class="modal fade" id="editjobmodal" tabindex="-1" role="dialog" aria-labelledby="editjobmodal" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Job</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+                    <form action="job-save.php" method="POST" class="form-horizontal add-product">
+                    <!-- STATE (new or edit) -->
+                    <input type="hidden" name="state" value="edit">
+                    <!-- PRODUCT ID (if editing) -->
+                    <input type="hidden" name="j_id" value="<?= $j_id ?>">
+
+                        <div class="form-group row">
+                          <label for="cust-name" class="col-sm-3 form-control-label">Customer Name</label>
+                          <div class="col-sm-9">
+                            <input type="text" name="cust-name" class="form-control" value="<?= $row['cust_name'] ?>">
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label for="vehicle" class="col-sm-3 form-control-label">Vehicle</label>
+                          <div class="col-sm-9">
+                            <input type="text" name="vehicle" class="form-control" value="<?= $row['vehicle'] ?>">
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label for="vin" class="col-sm-3 form-control-label">Vin #</label>
+                          <div class="col-sm-9">
+                            <input type="text" name="vin" class="form-control" value="<?= $row['vin'] ?>">
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label for="job-type" class="col-sm-3 form-control-label">Job Type</label>
+                          <div class="col-sm-9">
+                          <select class="custom-select" name="job-type">
+                            <option value="build" <? if ($row['jobtype'] == 'build') { echo 'selected'; }  ?> >Build</option>
+                            <option value="service" <? if ($row['jobtype'] == 'service') { echo 'selected'; }  ?> >Service</option>
+                            <option value="repair" <? if ($row['jobtype'] == 'repair') { echo 'selected'; }  ?> >Repair</option>
+                            <option value="conversion" <? if ($row['jobtype'] == 'conversion') { echo 'selected'; }  ?> >Conversion</option>
+                            <option value="warranty" <? if ($row['jobtype'] == 'warranty') { echo 'selected'; }  ?> >Warranty</option>
+
+                            <? /* $sql = mysqli_query($link, "SELECT * FROM locations");
+                            while ($row = $sql->fetch_assoc()){  ?>
+                            <option value="<?= $row['location'] ?>" <? if ($row['location'] == $p_loc) { echo 'selected';} ?> ><?php echo $row['location']; ?></option>
+                            <?
+                            } */ ?>
+
+                          </select>
+                          </div>
+                        </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Update Job</button>
+
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT JOB MODAL -->
+
+<!-- PRODUCT RETURN MODAL -->
+
+<div class="modal fade" id="prodreturnmodal" tabindex="-1" role="dialog" aria-labelledby="prodreturnmodalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Product Quantities</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <?
+          $sql_ms = mysqli_query($link, "SELECT * FROM job_stock WHERE job_id = '$j_id' ");
+          while ($row_ms = $sql_ms->fetch_assoc()) {
+          $p_id = $row_ms['p_id'];
+          $qty = $row_ms['qty'];
+        ?>
+
+          <div class="form-group row">
+          <label for="newqty" class="col-sm-2 form-control-label"><?= $p_id ?></label>
+            <div class="col-sm-2">
+            <input type="text" name="newqty" class="form-control" value="<?= $qty ?>">
+            </div>
+            <div class="col-sm-1">
+                  <button class="btn btn-sm btn-primary" type="submit" name="addto_job">Add </button>
+            </div>
+          </div>
+
+        <?
+          }
+
+        ?>
+
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT RETURN MODAL -->
 
 <?php
 
