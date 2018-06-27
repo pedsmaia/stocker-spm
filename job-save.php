@@ -31,4 +31,30 @@ $jobtype = mysqli_real_escape_string($link, $_POST['job-type']);
 
 } // if !empty POSTname
 
-?>
+if (isset($_POST['addto_job'])) {
+$p_id = mysqli_real_escape_string($link, $_POST['p_id']);
+$qty_job = mysqli_real_escape_string($link, $_POST['qty_job']);
+$id_job = mysqli_real_escape_string($link, $_POST['id_job']);
+$p_retail = mysqli_real_escape_string($link, $_POST['p_retail']);
+$return = mysqli_real_escape_string($link, $_POST['return']);
+
+		$sql = "INSERT INTO job_stock (job_id, p_id, qty, p_retail)
+			VALUES 
+			('$id_job', '$p_id', '$qty_job', '$p_retail')";
+		if(mysqli_query($link, $sql)){
+			if ($return == 'job') {
+			header('Location: job-view.php?id='.$id_job);
+			} else {
+			header('Location: prod-view.php?id='.$p_id);
+			exit;
+			}
+
+		} else {
+			echo "Error adding product to job.";
+		}
+
+
+	}
+
+
+?>	
