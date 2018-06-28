@@ -34,6 +34,7 @@ $avatar = $_SESSION["avatar"];
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/dropzone.min.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="img/favicon.ico">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
@@ -42,6 +43,8 @@ $avatar = $_SESSION["avatar"];
 
     
         <script src="https://cdn.jsdelivr.net/npm/jquery-tabledit@1.0.0/jquery.tabledit.min.js"></script>
+
+        <script src="js/dropzone.js"></script>
 
   </head>
   <body>
@@ -181,7 +184,7 @@ $avatar = $_SESSION["avatar"];
                     </li>
                     <li><a href="#jobsDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Jobs </a>
                       <ul id="jobsDropdown" class="collapse list-unstyled ">
-                    <li><a href="#"> <i class="icon-home"></i>List Jobs </a></li>
+                    <li><a href="job-list.php"> <i class="icon-home"></i>List Jobs </a></li>
                     <li><a href="job-add.php"> <i class="icon-home"></i>Add New </a></li>
                       </ul>
                     </li>

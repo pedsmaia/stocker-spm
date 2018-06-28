@@ -4,7 +4,9 @@ $title = "Product Photo Uploader";
 
 include 'header.php';
 
-if (!empty($_POST["prod_id"])) {
+// if (!empty($_POST["prod_id"])) {
+
+if (!empty($_FILES)){
 
 $prod_id = $_POST["prod_id"];
 

@@ -59,7 +59,6 @@ include 'header.php';
                         <div class="form-group row">
                           <label for="company" class="col-sm-3 form-control-label">Company</label>
                           <div class="col-sm-9">
-                            <input type="text" name="vehicle" class="form-control">
                           <select class="custom-select" name="job-company">
                             <option value="lincsmac">LincsMaC</option>
                             <option value="eurocruiser">EuroCruiser</option>
