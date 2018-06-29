@@ -185,3 +185,13 @@
 [26-Jun-2018 21:24:51 UTC] PHP Parse error:  syntax error, unexpected '' available<br>'' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/lincsmac/public_html/stocker/livesearch.php on line 17
 [26-Jun-2018 21:24:55 UTC] PHP Parse error:  syntax error, unexpected '' available<br>'' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/lincsmac/public_html/stocker/livesearch.php on line 17
 [26-Jun-2018 21:24:58 UTC] PHP Parse error:  syntax error, unexpected '' available<br>'' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in /home/lincsmac/public_html/stocker/livesearch.php on line 17
+[28-Jun-2018 11:53:51 UTC] PHP Warning:  mysqli_query() expects parameter 2 to be string, object given in /home/lincsmac/public_html/stocker/job-list.php on line 14
+[28-Jun-2018 11:54:06 UTC] PHP Warning:  mysqli_query() expects parameter 2 to be string, object given in /home/lincsmac/public_html/stocker/prod-list.php on line 14
+[28-Jun-2018 11:56:20 UTC] PHP Warning:  mysqli_query() expects parameter 2 to be string, object given in /home/lincsmac/public_html/stocker/job-list.php on line 14
+[28-Jun-2018 12:41:03 UTC] PHP Warning:  mysqli_query() expects parameter 2 to be string, object given in /home/lincsmac/public_html/stocker/prod-list.php on line 14
+[28-Jun-2018 12:41:52 UTC] PHP Warning:  mysqli_query() expects parameter 2 to be string, object given in /home/lincsmac/public_html/stocker/job-list.php on line 14
+[28-Jun-2018 12:42:25 UTC] PHP Warning:  mysqli_query() expects parameter 2 to be string, object given in /home/lincsmac/public_html/stocker/job-list.php on line 14
+[28-Jun-2018 12:42:57 UTC] PHP Warning:  mysqli_query() expects parameter 2 to be string, object given in /home/lincsmac/public_html/stocker/prod-list.php on line 14
+[28-Jun-2018 22:27:54 UTC] PHP Warning:  mysqli_query() expects parameter 2 to be string, object given in /home/lincsmac/public_html/stocker/job-list.php on line 14
+[29-Jun-2018 12:47:30 UTC] PHP Warning:  mysqli_query() expects parameter 2 to be string, object given in /home/lincsmac/public_html/stocker/job-list.php on line 14
+[29-Jun-2018 13:14:01 UTC] PHP Warning:  mysqli_query() expects parameter 2 to be string, object given in /home/lincsmac/public_html/stocker/prod-list.php on line 14
