@@ -41,7 +41,32 @@ $p_id = mysqli_real_escape_string($link, $_POST['prod-code']);
 
         	} // endof mysqli query INSERT
 
-        } // endof #### NEW PRODUCT ####
+        } else if ($state == 'edit') {
+        	
+        	// update the DB with the values sent
+	        	$sql = "UPDATE product 
+				SET name = '$name', 
+				description = '$description', 
+				s_tags = '$s_tags', 
+				p_location = '$location',
+				location = '$sublocation', 
+				unit = '$unit', 
+				q_alert = '$qtyalert',
+				p_supplier = '$supplier', 
+				p_cost = '$cost', 
+				p_retail = '$retail',
+				p_cat = '$category', 
+				p_subcat = '$subcategory', 
+				c_stock = '$c_stock',
+				u_stock = '$u_stock'
+				WHERE id = '$p_id'";
+				if(mysqli_query($link, $sql)){
+				// redirect ack to product page
+				header('Location: prod-view.php?id='.$p_id);
+				exit;
+			}
+
+        }   // endof #### NEW PRODUCT ####
 
 } // if !empty POSTname
 
